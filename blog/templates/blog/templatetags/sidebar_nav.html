@@ -1,0 +1,25 @@
+{% for year, months in entry_dict.items %}
+<ul class="unstyled">
+    <li>
+        <a href="#" data-toggle="collapse" data-target="#collapse{{ year }}" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+        {{ year }}
+        <div id="collapse{{ year }}" class="collapse">
+            <ul class="months unstyled">
+                {% for month, entries in months.items %}
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#collapse{{ year }}-{{ month }}" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+                    {{ month }}
+                    <div id="collapse{{ year }}-{{ month }}" class="collapse">
+                        <ul class="entries unstyled">
+                            {% for entry, entry_url in entries %}
+                            <li><a href="{{ entry_url }}">{{ entry }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+</ul>
+{% endfor %}
