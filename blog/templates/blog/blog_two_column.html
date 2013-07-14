@@ -1,0 +1,37 @@
+{% extends 'base_two_column.html' %}
+
+{% load static %}
+{% load blog_extras %}
+
+{% block styles %}
+{{ block.super }}
+<style type="text/css">
+    ul.blog-nav, ul.blog-nav ul {list-style: none; margin-left: 0; padding: 0;}
+    ul.blog-nav li {margin-left: 14px;}
+    div.collapsed {display: none;}
+    a.collapsible {text-decoration: none; color: #000;}
+</style>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('a.collapsible').click(function(event) {
+            event.preventDefault();
+            var $target = $($(this).data('target'));
+            if ($target.hasClass('collapsed')) {
+                $target.slideDown();
+            } else {
+                $target.slideUp();
+            }
+            $target.toggleClass('collapsed');
+            $('i', this).toggleClass('icon-rotate-90');
+        });
+    });
+</script>
+{% endblock %}
+
+{% block left_column %}
+{% blog_sidebar_nav %}
+{% endblock %}

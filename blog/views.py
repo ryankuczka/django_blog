@@ -21,13 +21,17 @@ def blog_by_date(request, year, month=None, day=None):
     View which returns all entries by year
     """
     cxt = {}
+    year = int(year)
     if month is None:
         start_date = datetime.date(year, 1, 1)
         end_date = datetime.date(year, 12, 31)
     elif day is None:
+        month = int(month)
         start_date = datetime.date(year, month, 1)
         end_date = datetime.date(year, month, calendar.monthrange(year, month)[1])
     else:
+        month = int(month)
+        day = int(day)
         start_date = datetime.date(year, month, day)
         end_date = datetime.date(year, month, day)
     entries = Entry.objects.filter(published=True)\

@@ -1,15 +1,18 @@
+<h3>Entries</h3>
 {% for year, months in entry_dict.items %}
-<ul class="unstyled">
+<ul class="blog-nav">
     <li>
-        <a href="#" data-toggle="collapse" data-target="#collapse{{ year }}" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+        <a href="#" data-target="#months{{ year }}" class="collapsible collapsed">
+            <i class="icon-chevron-right"></i>&nbsp;
+        </a>
         {{ year }}
-        <div id="collapse{{ year }}" class="collapse">
+        <div id="months{{ year }}" class="collapsed">
             <ul class="months unstyled">
                 {% for month, entries in months.items %}
                 <li>
-                    <a href="#" data-toggle="collapse" data-target="#collapse{{ year }}-{{ month }}" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+                    <a href="#" data-target="#entries{{ month}}-{{ year }}" class="collapsible collapsed"><i class="icon-chevron-right"></i></a>
                     {{ month }}
-                    <div id="collapse{{ year }}-{{ month }}" class="collapse">
+                    <div id="entries{{ month }}-{{ year }}" class="collapsed">
                         <ul class="entries unstyled">
                             {% for entry, entry_url in entries %}
                             <li><a href="{{ entry_url }}">{{ entry }}</a></li>

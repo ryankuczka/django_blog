@@ -1,31 +1,4 @@
-{% extends 'base_two_column.html' %}
-{% load static %}
-{% load blog_extras %}
-
-{% block styles %}
-{{ block.super }}
-<style type="text/css">
-    a.toggler {text-decoration: none;}
-    a.toggler i.icon-minus {display: inline-block;}
-    a.toggler i.icon-plus {display: none;}
-
-    a.toggler.collapsed i.icon-minus {display: none;}
-    a.toggler.collapsed i.icon-plus {display: inline-block;}
-
-    ul.months li {margin-left: 14px;}
-</style>
-{% endblock %}
-
-{% block scripts %}
-<script src="{% static 'portfolio/js/bootstrap.js' %}"></script>
-<script type="text/javascript">
-</script>
-{% endblock %}
-
-{% block left_column %}
-<h2>Entries</h2>
-{% blog_sidebar_nav %}
-{% endblock %}
+{% extends 'blog/blog_two_column.html' %}
 
 {% block main_column %}
 {% for entry in entries %}
