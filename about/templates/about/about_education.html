@@ -1,0 +1,64 @@
+{% extends 'about/about_two_column.html' %}
+
+{% block styles %}
+{{ block.super }}
+<style type="text/css">
+    ul.courses li {margin-left: 14px;}
+</style>
+{% endblock %}
+
+{% block main_column %}
+<h1>Education</h1>
+<div class="well">
+    <h2>New York University</h2>
+    <ul class="unstyled">
+        <li><strong>Major:</strong> Mathematics and Economics</li>
+        <li><strong>GPA:</strong> 3.549</li>
+        <li><strong>Courses:</strong><ul class="courses unstyled">
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#collapseMath" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+                <strong>Math:</strong>
+                <div id="collapseMath" class="collapse">
+                    <ul>
+                        <li>Calculus I-III</li>
+                        <li>Linear Algebra</li>
+                        <li>Analysis I-II</li>
+                        <li>Combinatorics</li>
+                        <li>Theory of Probability</li>
+                        <li>Theory of Numbers</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#collapseEcon" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+                <strong>Economics:</strong>
+                <div id="collapseEcon" class="collapse">
+                    <ul>
+                        <li>Intro to Economic Analysis</li>
+                        <li>Mathematics for Economists</li>
+                        <li>Analytical Statistics</li>
+                        <li>Econometrics</li>
+                        <li>Microeconomic Theory and Analysis</li>
+                        <li>Macroeconomic Theory and Analysis</li>
+                        <li>Money and Banking</li>
+                        <li>Strategic Decision Theory</li>
+                        <li>Economics and Psychology</li>
+                        <li>Mathematics of Finance</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#collapseCS" class="collapsed toggler"><i class="icon-minus"></i><i class="icon-plus"></i></a>
+                <strong>Computer Science:</strong>
+                <div id="collapseCS" class="collapse">
+                    <ul>
+                        <li>Intro to Programming</li>
+                        <li>Intro to Computer Science</li>
+                    </ul>
+                </div>
+            </li>
+        </ul></li>
+    </ul>
+</div>
+{% endblock %}
+

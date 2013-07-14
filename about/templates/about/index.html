@@ -1,3 +1,11 @@
+{% extends 'about/about_two_column.html' %}
+
+{% block left_column %}
+Left col here...
+{% endblock %}
+
+{% block main_column %}
 {% for about_page in about_pages %}
 {{ about_page.name }}
 {% endfor %}
+{% endblock %}
