@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_content %}
-<div class="row-fluid">
-    <div class="span3">
-        {% block left_column %}
-        Left col here...
-        {% endblock %}
-    </div>
-    <div class="span9">
-        {% block main_column %}
-        Main col here...
-        {% endblock %}
-    </div>
+<div id="leftCol">
+    {% block left_column %}
+    Left col here...
+    {% endblock %}
+</div>
+<div id="mainCol">
+    {% block main_column %}
+    Main col here...
+    {% endblock %}
 </div>
 {% endblock %}
