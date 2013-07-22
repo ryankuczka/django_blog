@@ -12,33 +12,7 @@
 
         {% block styles %}
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <style type="text/css">
-            body {font-size: 16px; font-family: Arial;}
-            a {text-decoration: underline; color: #777;}
-            a:hover {text-decoration: none;}
-            ul.unstyled {list-style-type: none; -webkit-padding-start: 0;}
-
-            #wrapAll {padding: 0 20px; width: 940px; margin: 0 auto;}
-            #header {height: 100px; margin-bottom: 20px;}
-            #header div.topRow {height: 95px; width: 900px;}
-            #header div.dividerLine {height: 5px; width: 900px; background:rgb(255, 210, 0)}
-            #header div.navButton {
-                height: 30px;
-                padding: 5px 8px 0 8px;
-                margin: 60px 5px 0 0;
-                float: right;
-                background: #999;
-                font-weight: bold;
-                font-size: 1.5em;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-            }
-            #header div.navButton.selected {background: rgb(255, 210, 0);}
-            #header a {text-decoration: none; color: #000;}
-
-            #leftCol {width: 180px; float: left;}
-            #mainCol {width: 720px; float: left;}
-        </style>
+        <link href="{% static 'portfolio/css/core.css' %}" rel="stylesheet" type="text/css" />
         {% endblock %}
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -55,10 +29,10 @@
         <div id="header">
             <div class="topRow">
                 <a href="/"><img src="{% static 'portfolio/img/header-logo.png' %}" width="483" height="95"/></a>
-                <div class="navButton{% if SITE_SECTION == 'Contact' %} selected{% endif %}"><a href="/">Contact</a></div>
-                <div class="navButton{% if SITE_SECTION == 'Projects' %} selected{% endif %}"><a href="/">Projects</a></div>
-                <div class="navButton{% if SITE_SECTION == 'Blog' %} selected{% endif %}"><a href="{% url 'blog_index' %}">Blog</a></div>
-                <div class="navButton{% if SITE_SECTION == 'About' %} selected{% endif %}"><a href="{% url 'about_index' %}">About</a></div>
+                <a href="/" class="navButton{% if SITE_SECTION == 'Contact' %} selected{% endif %}">Contact</a>
+                <a href="/" class="navButton{% if SITE_SECTION == 'Projects' %} selected{% endif %}">Projects</a>
+                <a href="{% url 'blog_index' %}" class="navButton{% if SITE_SECTION == 'Blog' %} selected{% endif %}">Blog</a>
+                <a href="{% url 'about_index' %}" class="navButton{% if SITE_SECTION == 'About' %} selected{% endif %}">About</a>
             </div>
             <div class="dividerLine"></div>
         </div>
