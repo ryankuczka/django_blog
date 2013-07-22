@@ -1,5 +1,33 @@
 {% extends 'base_two_column.html' %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link href="{% static 'about/css/about.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'portfolio/js/jquery.sticky.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#aboutNav').sticky({topSpacing: 20});
+    });
+</script>
+{% endblock %}
 
 {% block left_column %}
-Left col here...
+<div id="aboutNav">
+    <a href="{% url 'about_page' 'about_me' %}" class="aboutNavTab{% if about_page.internal_name == 'about_me' %} selected{% endif %}">About Me</a>
+    {% if about_page.internal_name == 'about_me' %}
+    <a href="#skills" class="aboutSubNavTab">Skills</a>
+    {% endif %}
+    <a href="{% url 'about_page' 'education' %}" class="aboutNavTab{% if about_page.internal_name == 'education' %} selected{% endif %}">Education</a>
+    {% if about_page.internal_name == 'education' %}
+    <a href="#courses" class="aboutSubNavTab">Courses</a>
+    <a href="#postGrad" class="aboutSubNavTab">After College</a>
+    {% endif %}
+    <a href="{% url 'about_page' 'experience' %}" class="aboutNavTab{% if about_page.internal_name == 'experience' %} selected{% endif %}">Experience</a>
+    <a href="{% url 'about_page' 'interests' %}" class="aboutNavTab{% if about_page.internal_name == 'interests' %} selected{% endif %}">Interests</a>
+</div>
 {% endblock %}

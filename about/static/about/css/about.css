@@ -1,0 +1,30 @@
+/* Sidebar Nav */
+#aboutNav {
+    width: 145px;
+    border-right: 5px solid #ffd200;
+    padding: 5px 0 10px 0;
+}
+.aboutNavTab {
+    display: block;
+    text-align: right;
+    padding: 5px 10px 5px 0;
+    margin: 5px 0 0 20px;
+    background: #999;
+    font-size: 1.2em;
+    width: 115px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-decoration: none;
+    color: #000;
+}
+.aboutNavTab.selected {
+    background: #ffd200;
+}
+.aboutSubNavTab {
+    display: block;
+    padding-right: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    background: #fff;
+    text-align: right;
+}
