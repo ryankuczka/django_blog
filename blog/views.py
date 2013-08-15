@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import Http404
+
 from blog.models import Entry
+from blog.utils.blog_utils import build_blog_date_dict
 
 import datetime
 import calendar
@@ -52,3 +54,13 @@ def entry(request, year, month, day, internal_name):
         raise Http404
     cxt['entry'] = entry
     return render(request, 'blog/entry.html', cxt)
+
+def blog_archive(request):
+    """
+    View which displays all blogs by date
+    """
+    cxt = {}
+    entry_dict = build_blog_date_dict()
+    cxt['entry_dict'] = entry_dict
+    cxt['archive'] = True
+    return render(request, 'blog/archive.html', cxt)

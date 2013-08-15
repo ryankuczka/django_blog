@@ -1,0 +1,17 @@
+{% extends 'blog/blog_two_column.html' %}
+
+{% block main_column %}
+<ul>
+    {% for year, months in entry_dict.items %}
+    <li>{{ year }}<ul>
+        {% for month, entries in months.items %}
+        <li>{{ month }}<ul>
+            {% for entry, entry_url in entries %}
+            <li>{{ entry }}</li>
+            {% endfor %}
+        </ul></li>
+        {% endfor %}
+    </ul></li>
+    {% endfor %}
+</ul>
+{% endblock %}

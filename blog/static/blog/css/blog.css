@@ -1,0 +1,67 @@
+/* Sidebar Nav */
+#blogNav {
+    width: 145px;
+    border-right: 5px solid #ffd200;
+    padding: 5px 0 10px 0;
+}
+.blogNavTab {
+    display: block;
+    text-align: right;
+    padding: 5px 10px 5px 0;
+    margin: 5px 0 0 20px;
+    font-size: 1.2em;
+    width: 115px;
+    border-top-left-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background: #999;
+}
+.blogNavTab.entries {
+    border-bottom: 2px solid #000;
+}
+.blogNavTab.archives {
+    border-bottom-left-radius: 5px;
+}
+.blogNavTab.selected {
+    background: #ffd200;
+}
+.blogNavTab.entries.selected {
+    border-bottom: none;
+}
+.blogNavList {
+    padding-bottom: 5px;
+    margin-left: 20px;
+    width: 125px;
+    background: #999;
+    text-align: right;
+    border-bottom-left-radius: 5px;
+}
+.blogNavList a {text-decoration: none; color: #000;}
+.year > a {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    width: 115px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+}
+.year {
+    border-top: 2px solid #000;
+    padding-top: 5px;
+}
+.year:first-child {
+    border-top: none;
+}
+.months > a {
+    display: block;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 5px 10px 3px 0;
+    border-top: 1px solid #000;
+}
+.entries > a {display: block; padding: 5px 10px 0 0; text-decoration:underline;}
+.entries > a:first-child {border-top: 1px solid #000;}
+.entries > a:hover {text-decoration: none;}
+.entries > a:last-child {padding-bottom: 5px;}
+
+div.collapsed {display: none;}

@@ -19,6 +19,10 @@ class Entry(models.Model):
     modify_date = models.DateTimeField(auto_now=True)
     publish_date = models.DateField(default=datetime.date.today)
 
+    class Meta:
+        ordering = ('publish_date',)
+        verbose_name_plural = 'entries'
+
     def __unicode__(self):
         return u'%s' % self.title
 
