@@ -20,12 +20,12 @@
 <div id="aboutNav">
     <a href="{% url 'about_page' 'about_me' %}" class="aboutNavTab{% if about_page.internal_name == 'about_me' %} selected{% endif %}">About Me</a>
     {% if about_page.internal_name == 'about_me' %}
-    <a href="#skills" class="aboutSubNavTab">Skills</a>
+    <div><a href="#skills" class="aboutSubNavTab">Skills</a></div>
     {% endif %}
     <a href="{% url 'about_page' 'education' %}" class="aboutNavTab{% if about_page.internal_name == 'education' %} selected{% endif %}">Education</a>
     {% if about_page.internal_name == 'education' %}
-    <a href="#courses" class="aboutSubNavTab">Courses</a>
-    <a href="#postGrad" class="aboutSubNavTab">After College</a>
+    <div><a href="#courses" class="aboutSubNavTab">Courses</a>
+    <a href="#postGrad" class="aboutSubNavTab">After College</a></div>
     {% endif %}
     <a href="{% url 'about_page' 'experience' %}" class="aboutNavTab{% if about_page.internal_name == 'experience' %} selected{% endif %}">Experience</a>
     <a href="{% url 'about_page' 'interests' %}" class="aboutNavTab{% if about_page.internal_name == 'interests' %} selected{% endif %}">Interests</a>

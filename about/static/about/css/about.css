@@ -19,12 +19,23 @@
 }
 .aboutNavTab.selected {
     background: #ffd200;
+    border-bottom-left-radius: 0;
 }
 .aboutSubNavTab {
     display: block;
-    padding-right: 10px;
-    margin-top: 5px;
     font-size: 1em;
-    background: #fff;
+    background: #999;
     text-align: right;
+    width: 115px;
+    padding: 5px 10px 5px 0;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+    border-top: 1px solid #000;
+}
+.aboutSubNavTab:last-child {
+    border-bottom-left-radius: 5px;
+}
+.aboutSubNavTab:first-child {
+    border: none;
 }
