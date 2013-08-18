@@ -2,7 +2,10 @@
 
 {% block main_column %}
 {% for entry in entries %}
-<a href="{{ entry.get_absolute_url }}"><h3>{{ entry.title }}</h3></a>
-{{ entry.content }}
+<a href="{{ entry.get_absolute_url }}" class="entryTitle"><h1>{{ entry.title }}</h1></a>
+<p>
+    {{ entry.get_intro_para|safe }}
+    <a href="{{ entry.get_absolute_url }}">Continue reading...</a>
+</p>
 {% endfor %}
 {% endblock %}

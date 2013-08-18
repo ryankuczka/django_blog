@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+import re
 import datetime
 
 
@@ -41,3 +42,15 @@ class Entry(models.Model):
             'internal_name': self.internal_name,
         }
         return reverse('blog_entry', kwargs=kwargs)
+
+    @property
+    def get_intro_para(self):
+        """
+        Simply returns the first <p></p> block... for now
+        """
+        first_para = re.search(r'^<p.*?>(?P<first_para>.*?)</p>', self.content)
+        if first_para:
+            first_para_text = first_para.group('first_para')
+            return first_para_text
+        else:
+            return self.content

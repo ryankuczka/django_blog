@@ -65,3 +65,21 @@
 .entries > a:last-child {padding-bottom: 5px;}
 
 div.collapsed {display: none;}
+/* Entry List */
+.entryTitle {
+    display: block;
+    text-decoration: none;
+    background: #ffd200;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 5px 0 #cca000, 0 5px 15px #000;
+}
+.entryTitle:hover {
+    box-shadow: 0 3px 0 #cca000, 0 3px 5px #000;
+}
+.entryTitle:active {
+    box-shadow: 0 1px 0 #cca000, 0 1px 2px #000;
+}
+.entryTitle h1 {
+    margin: 0 0 0 10px;
+}
