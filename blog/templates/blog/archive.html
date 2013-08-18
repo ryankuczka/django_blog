@@ -1,17 +1,21 @@
 {% extends 'blog/blog_two_column.html' %}
 
 {% block main_column %}
-<ul>
-    {% for year, months in entry_dict.items %}
-    <li>{{ year }}<ul>
-        {% for month, entries in months.items %}
-        <li>{{ month }}<ul>
+<div id="archYrList">
+{% for year, months in entry_dict.items %}
+<a href="#" data-target="#archMnthList{{ year }}" class="collapsible archYr{% if not forloop.first %} collapsed{% endif %}">
+    <span>{{ year }}</span>
+    <i class="icon-plus icon-2x{% if forloop.first %} icon-minus{% endif %}"></i></a>
+<div id="archMnthList{{ year }}"{% if not forloop.first %} class="collapsed"{% endif %}>
+        {% for month_tuple, entries in months.items %}
+        <a href="{% url 'blog_by_month' year month_tuple.0 %}" class="archMnth"><h3>{{ month_tuple.1 }}</h2></a>
+        <div id="archEtrList">
             {% for entry, entry_url in entries %}
-            <li>{{ entry }}</li>
+            <a href="{{ entry_url }}" class="archEtr">{{ entry.title }}</a>
             {% endfor %}
-        </ul></li>
+        </div>
         {% endfor %}
-    </ul></li>
-    {% endfor %}
-</ul>
+    </div>
+{% endfor %}
+</div>
 {% endblock %}
