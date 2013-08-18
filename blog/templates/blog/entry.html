@@ -2,5 +2,5 @@
 
 {% block main_column %}
 <h2>{{ entry.title }}</h2>
-{{ entry.content }}
+{{ entry.content|safe }}
 {% endblock %}

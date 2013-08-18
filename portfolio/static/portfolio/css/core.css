@@ -1,6 +1,7 @@
 /* Global styles */
-body {font-size: 16px; font-family: Arial;}
-a {text-decoration: underline; color: #777;}
+body {font-size: 16px; font-family: Arial; color: #777}
+h1,h2,h3,h4,h5,h6 {color: #000;}
+a {text-decoration: underline; color: #000;}
 a:hover {text-decoration: none;}
 
 #wrapAll {padding: 0 20px; width: 940px; margin: 0 auto;}
