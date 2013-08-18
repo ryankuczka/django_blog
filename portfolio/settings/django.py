@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'south',
     'about',
     'blog',
+    'tinymce',
 )
 
 # A sample logging configuration. The only tangible logging
