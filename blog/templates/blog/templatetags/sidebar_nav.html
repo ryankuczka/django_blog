@@ -2,16 +2,16 @@
     <a href="{% url 'blog_index' %}" class="blogNavTab entries{% if not archive %} selected{% endif %}">Entries</a>
     <div class="blogNavList">
         {% for year, months in entry_dict.items %}
-        <div class="year">
+        <div class="blogNavYear">
             <a href="#" data-target="#months{{ year }}" class="collapsible collapsed">
                 {{ year }}&nbsp;&nbsp;<i class="icon-chevron-left"></i>
             </a>
-            <div id="months{{ year }}" class="months collapsed">
-                {% for month, entries in months.items %}
-                <a href="#" data-target="#entries{{ month}}-{{ year }}" class="collapsible collapsed">
-                    {{ month }}&nbsp;&nbsp;<i class="icon-chevron-left"></i>
+            <div id="months{{ year }}" class="blogNavMonth collapsed">
+                {% for month_tuple, entries in months.items %}
+                <a href="#" data-target="#entries{{ month_tuple.0 }}-{{ year }}" class="collapsible collapsed">
+                    {{ month_tuple.1 }}&nbsp;&nbsp;<i class="icon-chevron-left"></i>
                 </a>
-                <div id="entries{{ month }}-{{ year }}" class="entries collapsed">
+                <div id="entries{{ month_tuple.0 }}-{{ year }}" class="blogNavEntries collapsed">
                     {% for entry, entry_url in entries %}
                     <a href="{{ entry_url }}">{{ entry }}</a>
                     {% endfor %}

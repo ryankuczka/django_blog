@@ -37,7 +37,7 @@
     border-bottom-left-radius: 5px;
 }
 .blogNavList a {text-decoration: none; color: #000;}
-.year > a {
+.blogNavYear > a {
     font-weight: bold;
     font-size: 1.1em;
     display: block;
@@ -45,24 +45,24 @@
     padding-right: 10px;
     padding-bottom: 3px;
 }
-.year {
+.blogNavYear {
     border-top: 2px solid #000;
     padding-top: 5px;
 }
-.year:first-child {
+.blogNavYear:first-child {
     border-top: none;
 }
-.months > a {
+.blogNavMonth > a {
     display: block;
     font-weight: normal;
     font-size: 16px;
     padding: 5px 10px 3px 0;
     border-top: 1px solid #000;
 }
-.entries > a {display: block; padding: 5px 10px 0 0; text-decoration:underline;}
-.entries > a:first-child {border-top: 1px solid #000;}
-.entries > a:hover {text-decoration: none;}
-.entries > a:last-child {padding-bottom: 5px;}
+.blogNavEntries > a {display: block; padding: 5px 10px 0 0; text-decoration:underline;}
+.blogNavEntries > a:first-child {border-top: 1px solid #000;}
+.blogNavEntries > a:hover {text-decoration: none;}
+.blogNavEntries > a:last-child {padding-bottom: 5px;}
 
 div.collapsed {display: none;}
 

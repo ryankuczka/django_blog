@@ -10,6 +10,12 @@
 
 {% block scripts %}
 {{ block.super }}
+<script src="{% static 'vendors/js/jquery.sticky.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#blogNav').sticky({topSpacing: 20});
+    });
+</script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('a.collapsible').click(function(event) {
@@ -17,11 +23,15 @@
             var $target = $($(this).data('target'));
             if ($target.hasClass('collapsed')) {
                 $target.slideDown();
+                $target.toggleClass('collapsed');
             } else {
-                $target.slideUp();
+                $target.slideUp(function() {
+                    $target.toggleClass('collapsed');
+                });
             }
-            $target.toggleClass('collapsed');
-            $('i', this).toggleClass('icon-rotate-270');
+            $('i.icon-chevron-left', this).toggleClass('icon-rotate-270');
+            $('i.icon-plus', this).toggleClass('icon-minus');
+            $(this).toggleClass('collapsed');
         });
     });
 </script>
