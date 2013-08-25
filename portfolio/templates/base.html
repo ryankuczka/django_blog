@@ -28,12 +28,17 @@
     <body>
         <div id="wrapAll">
         <div id="header">
-            <div class="topRow">
+            <div class="logo">
                 <a href="/"><img src="{% static 'portfolio/img/header-logo.png' %}" width="483" height="95"/></a>
-                <a href="/" class="navButton{% if SITE_SECTION == 'Contact' %} selected{% endif %}">Contact</a>
-                <a href="/" class="navButton{% if SITE_SECTION == 'Projects' %} selected{% endif %}">Projects</a>
-                <a href="{% url 'blog_index' %}" class="navButton{% if SITE_SECTION == 'Blog' %} selected{% endif %}">Blog</a>
-                <a href="{% url 'about_index' %}" class="navButton{% if SITE_SECTION == 'About' %} selected{% endif %}">About</a>
+            </div>
+            <div class="headerContent">
+                <div class="networks">&nbsp;</div>
+                <div class="navButtons">
+                    <a href="/" class="navButton{% if SITE_SECTION == 'Contact' %} selected{% endif %}">Contact</a>
+                    <a href="/" class="navButton{% if SITE_SECTION == 'Projects' %} selected{% endif %}">Projects</a>
+                    <a href="{% url 'blog_index' %}" class="navButton{% if SITE_SECTION == 'Blog' %} selected{% endif %}">Blog</a>
+                    <a href="{% url 'about_index' %}" class="navButton{% if SITE_SECTION == 'About' %} selected{% endif %}">About</a>
+                </div>
             </div>
             <div class="dividerLine"></div>
         </div>
@@ -41,7 +46,11 @@
         <div id="contentWrap">
         {% block main_content %}
         {% endblock %}
+        <div id="push"></div>
         </div>
+        </div>
+        <div id="footer">
+            <p class="footer">Ryan Kuczka &copy; 2013</p>
         </div>
     </body>
 </html>

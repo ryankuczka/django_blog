@@ -1,22 +1,48 @@
 /* Global styles */
-body {font-size: 16px; font-family: Arial; color: #777}
+html {height: 100%;}
+body {
+    font-size: 16px;
+    font-family: Arial;
+    color: #777;
+    background: #ddd;
+    margin: 0;
+    height: 100%;
+}
 h1,h2,h3,h4,h5,h6 {color: #000;}
 a {text-decoration: underline; color: #000;}
 a:hover {text-decoration: none;}
+.clear {clear: both;}
 
-#wrapAll {padding: 0 20px; width: 940px; margin: 0 auto;}
-#leftCol {width: 180px; float: left;}
-#mainCol {width: 720px; float: left;}
+#wrapAll {
+    width: 950px;
+    margin: 0 auto -30px;
+    background: #fff;
+    border-left: 5px solid #ffd200;
+    border-right: 5px solid #ffd200;
+    box-shadow: 0 0 15px #333;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+#leftCol {width: 150px; float: left;}
+#mainCol {width: 730px; float: left; margin-left: 20px;}
+#contentWrap {width: 900px; padding: 0 25px;}
 
 /* Header */
-#header {height: 100px; margin-bottom: 20px;}
-#header div.topRow {height: 95px; width: 900px;}
-#header div.dividerLine {height: 5px; width: 900px; background: #ffd200;}
+#header {
+    height: 100px;
+    padding: 20px 25px;
+    width: 900px;
+}
+#header div.logo {height: 95px; width: 483px; float: left;}
+#header div.headerContent {height: 95px; width: 417px; float: right;}
+#header div.networks {height: 60px;}
+#header div.dividerLine {height: 5px; width: 900px; background: #ffd200; clear: both;}
 #header a.navButton {
     display: block;
     height: 30px;
     padding: 5px 8px 0 8px;
-    margin: 60px 5px 0 0;
+    margin-right: 5px;
     float: right;
     background: #999;
     font-weight: bold;
@@ -27,3 +53,15 @@ a:hover {text-decoration: none;}
     color: #000;
 }
 #header a.navButton.selected {background: #ffd200;}
+
+/* footer */
+#push {height: 30px; clear: both;}
+#footer {
+    height: 1em;
+    width: 900px;
+    padding: 5px 25px 7px;
+    margin: 0 auto;
+    border-top: 2px solid #ccc;
+    text-align: right;
+}
+p.footer {margin: 0;}
