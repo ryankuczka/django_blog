@@ -137,6 +137,8 @@ INSTALLED_APPS = (
     'about',
     'blog',
     'tinymce',
+    'taggit',
+    'taggit_templatetags',
 )
 
 # A sample logging configuration. The only tangible logging

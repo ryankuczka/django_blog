@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from taggit.managers import TaggableManager
+
 import re
 import datetime
 
@@ -19,6 +21,7 @@ class Entry(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     modify_date = models.DateTimeField(auto_now=True)
     publish_date = models.DateField(default=datetime.date.today)
+    tags = TaggableManager()
 
     class Meta:
         ordering = ('publish_date',)
