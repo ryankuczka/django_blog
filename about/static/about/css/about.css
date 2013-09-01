@@ -1,26 +1,25 @@
 /* Sidebar Nav */
 #aboutNav {
-    width: 145px;
-    border-right: 5px solid #ffd200;
-    padding: 5px 0 10px 0;
+    width: 140px;
+    padding: 5px 0 10px 10px;
 }
 .aboutNavTab {
     display: block;
     text-align: right;
     padding: 5px 10px 5px 0;
-    margin: 5px 0 0 20px;
+    margin-top: 10px;
     background: #999;
     font-size: 1.2em;
-    width: 115px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    font-weight: bold;
+    border-radius: 5px;
     text-decoration: none;
     color: #000;
+    box-shadow: -5px 5px 0 #555;
 }
-.aboutNavTab.selected {
-    background: #ffd200;
-    border-bottom-left-radius: 0;
-}
+.aboutNavTab:first-child {margin-top: 5px;}
+.aboutNavTab:hover {box-shadow: -3px 3px 0 #555;}
+.aboutNavTab.selected {background: #ffd200; box-shadow: -5px 5px 0 #cca000;}
+.aboutNavTab.selected:hover {box-shadow: -3px 3px 0 #cca000;}
 .aboutSubNavTab {
     display: block;
     font-size: 1em;
