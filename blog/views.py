@@ -64,3 +64,13 @@ def blog_archive(request):
     cxt['entry_dict'] = entry_dict
     cxt['archive'] = True
     return render(request, 'blog/archive.html', cxt)
+
+def blog_by_tag(request, tag):
+    """
+    View which displays all blogs with a tag
+    """
+    cxt = {}
+    entries = Entry.objects.filter(tags__slug=tag)
+    cxt['entries'] = entries
+    cxt['tags'] = True
+    return render(request, 'blog/entry_list.html', cxt)

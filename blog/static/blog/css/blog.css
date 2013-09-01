@@ -7,7 +7,7 @@
     display: block;
     text-align: right;
     padding: 5px 10px 5px 0;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 1.2em;
     font-weight: bold;
     border-top-left-radius: 5px;
@@ -15,17 +15,22 @@
     text-decoration: none;
     color: #000;
     background: #999;
+    box-shadow: -5px 5px 0 #555;
 }
+.blogNavTab.entries {margin-top: 5px;}
 .blogNavTab.entries, .blogNavTab.tags {border-bottom: 2px solid #000;}
 .blogNavTab.archives {border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
-.blogNavTab.selected {background: #ffd200;}
-.blogNavTab.entries.selected {border-bottom: none;}
-.blogNavList, .blogTagList {
+.blogNavTab.archives:hover {box-shadow: -3px 3px 0 #555;}
+.blogNavTab.archives.selected:hover {box-shadow: -3px 3px 0 #cca000;}
+.blogNavTab.selected {background: #ffd200; box-shadow: -5px 5px 0 #cca000;}
+.blogNavTab.entries.selected, .blogNavTab.tags.selected {border-bottom: none;}
+.blogNavList, .blogTagCloud {
     padding-bottom: 5px;
     background: #999;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: right;
+    box-shadow: -5px 5px 0 #555;
 }
 .blogNavList a {text-decoration: none; color: #000;}
 .blogNavYear > a {
@@ -54,7 +59,7 @@
 .blogNavEntries > a:hover {text-decoration: none;}
 .blogNavEntries > a:last-child {padding-bottom: 5px;}
 
-.tagCloud {margin: 0}
+.tagCloud {margin: 0 5px;}
 div.collapsed {display: none;}
 
 /* Archives */
@@ -65,13 +70,10 @@ div.collapsed {display: none;}
     background: #ffd200;
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 5px 0 #cca000, 0 5px 15px #000;
+    box-shadow: -5px 5px 0 #cca000;
 }
 .archYr.collapsed {
-    box-shadow: 0 3px 0 #cca000, 0 3px 5px #000;
-}
-.archYr:active {
-    box-shadow: 0 1px 0 #cca000, 0 1px 2px #000;
+    box-shadow: -3px 3px 0 #cca000;
 }
 .archYr i {float: right; margin: 2px 5px 0 0;}
 .archYr span {font-size: 2em; font-weight: bold; margin-left: 10px;}
@@ -94,13 +96,10 @@ div.collapsed {display: none;}
     background: #ffd200;
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 5px 0 #cca000, 0 5px 15px #000;
+    box-shadow: -5px 5px 0 #cca000;
 }
 .entryTitle:hover {
-    box-shadow: 0 3px 0 #cca000, 0 3px 5px #000;
-}
-.entryTitle:active {
-    box-shadow: 0 1px 0 #cca000, 0 1px 2px #000;
+    box-shadow: -3px 3px 0 #cca000;
 }
 .entryTitle h1 {
     margin: 0 0 0 10px;

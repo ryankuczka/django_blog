@@ -9,5 +9,6 @@ register = template.Library()
 @register.inclusion_tag('blog/templatetags/sidebar_nav.html', takes_context=True)
 def blog_sidebar_nav(context):
     archive = context.get('archive', False)
+    tags = context.get('tags', False)
     entry_dict = build_blog_date_dict()
-    return {'entry_dict': entry_dict, 'archive': archive}
+    return {'entry_dict': entry_dict, 'archive': archive, 'tags': tags}

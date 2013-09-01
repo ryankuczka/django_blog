@@ -1,6 +1,6 @@
 {% load taggit_extras %}
 <div id="blogNav">
-    <a href="{% url 'blog_index' %}" class="blogNavTab entries{% if not archive %} selected{% endif %}">Entries</a>
+    <a href="{% url 'blog_index' %}" class="blogNavTab entries{% if not archive and not tags %} selected{% endif %}">Entries</a>
     <div class="blogNavList">
         {% for year, months in entry_dict.items %}
         <div class="blogNavYear">
@@ -22,14 +22,16 @@
         </div>
         {% endfor %}
     </div>
-    <div class="blogNavTab tags">
+    <div class="blogNavTab tags{% if tags %} selected{% endif %}">
         Tags
     </div>
-    <div class="blogTagList">
+    <div class="blogTagCloud">
         <p class="tagCloud">
             {% get_tagcloud as tags %}
             {% for tag in tags %}
-            <font size={{ tag.weight|floatformat:0 }}>{{ tag }}</font>
+            <font size={{ tag.weight|floatformat:0 }}>
+                <a href="{% url 'blog_by_tag' tag.slug %}">{{ tag }}</a>
+            </font>
             {% endfor %}
         </p>
     </div>

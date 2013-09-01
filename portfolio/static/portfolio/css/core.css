@@ -1,5 +1,5 @@
 /* Global styles */
-html {height: 100%;}
+html {height: 100%; overflow-y: scroll;}
 body {
     font-size: 16px;
     font-family: Arial;
@@ -53,6 +53,8 @@ a:hover {text-decoration: none;}
     color: #000;
 }
 #header a.navButton.selected {background: #ffd200;}
+#header a.navButton.selected:hover {background: #ffd200;}
+#header a.navButton:hover {background: #ccc;}
 
 /* footer */
 #push {height: 30px; clear: both;}

@@ -33,6 +33,36 @@
             $('i.icon-plus', this).toggleClass('icon-minus');
             $(this).toggleClass('collapsed');
         });
+        $('.blogNavTab.entries,.blogNavList').hover(function() {
+            if ($('.blogNavTab.entries').hasClass('selected')) {
+                $('.blogNavTab.entries').css('box-shadow', '-3px 3px 0 #cca000');
+            } else {
+                $('.blogNavTab.entries').css('box-shadow', '-3px 3px 0 #555');
+            }
+            $('.blogNavList').css('box-shadow', '-3px 3px 0 #555');
+        }, function() {
+            if ($('.blogNavTab.entries').hasClass('selected')) {
+                $('.blogNavTab.entries').css('box-shadow', '-5px 5px 0 #cca000');
+            } else {
+                $('.blogNavTab.entries').css('box-shadow', '-5px 5px 0 #555');
+            }
+            $('.blogNavList').css('box-shadow', '-5px 5px 0 #555');
+        });
+        $('.blogNavTab.tags,.blogTagCloud').hover(function() {
+            if ($('.blogNavTab.tags').hasClass('selected')) {
+                $('.blogNavTab.tags').css('box-shadow', '-3px 3px 0 #cca000');
+            } else {
+                $('.blogNavTab.tags').css('box-shadow', '-3px 3px 0 #555');
+            }
+            $('.blogTagCloud').css('box-shadow', '-3px 3px 0 #555');
+        }, function() {
+            if ($('.blogNavTab.tags').hasClass('selected')) {
+                $('.blogNavTab.tags').css('box-shadow', '-5px 5px 0 #cca000');
+            } else {
+                $('.blogNavTab.tags').css('box-shadow', '-5px 5px 0 #555');
+            }
+            $('.blogTagCloud').css('box-shadow', '-5px 5px 0 #555');
+        });
     });
 </script>
 {% endblock %}

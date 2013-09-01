@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<internal_name>[0-9a-z_]+)$',
         'blog.views.entry', name='blog_entry'),
     url(r'^archive$', 'blog.views.blog_archive', name='blog_archive'),
+    url(r'^tag/(?P<tag>[A-Za-z0-9-_]+)', 'blog.views.blog_by_tag', name='blog_by_tag'),
 )
