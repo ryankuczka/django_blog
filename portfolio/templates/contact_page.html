@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/contact.css' %}" />
+{% endblock %}
+
+{% block main_content %}
+<h2>Send an Email</h2>
+<div id="contactForm">
+    <form method="post">
+        {% csrf_token %}
+        <div class="subject">
+            {{ form.subject.label_tag }}
+            {{ form.subject }}
+        </div>
+        <div class="email">
+            {{ form.sender.label_tag }}
+            {{ form.sender }}
+        </div>
+        <div class="message">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+        </div>
+        <div class="cc">
+            {{ form.cc_myself.label_tag }}
+            {{ form.cc_myself }}
+        </div>
+        <input type="submit" value="Send" class="contact disabled" disabled/>
+    </form>
+</div>
+{% endblock %}

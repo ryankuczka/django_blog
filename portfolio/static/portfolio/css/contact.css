@@ -1,0 +1,17 @@
+#contactForm label {width: 150px; text-align: right; display: inline-block; vertical-align: top;}
+#contactForm div {margin-bottom: 10px;}
+input.contact {
+    display: block;
+    width: 140px;
+    padding: 5px 10px 5px 0;
+    font-size: 1.2em;
+    border-radius: 5px;
+    background: #ffd200;
+    box-shadow: -5px 5px 0 #cca000;
+    color: #000;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+input.contact:hover {box-shadow: -3px 3px 0 #cca000;}
+input.contact.disabled {background: #999; box-shadow: -3px 3px 0 #555; cursor: default;}
