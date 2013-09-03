@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'south',
     'about',
     'blog',
+    'projects',
     'tinymce',
     'taggit',
     'taggit_templatetags',

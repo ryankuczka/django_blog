@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^about/', include('about.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^projects/', include('projects.urls')),
     url(r'^contact/$', 'portfolio.views.contact', name='contact'),
     url(r'^contact/thanks', 'portfolio.views.contact_thanks', name='contact_thanks'),
 )
