@@ -6,16 +6,22 @@ from blog.utils.blog_utils import build_blog_date_dict
 
 import datetime
 import calendar
+import logging
+logger = logging.getLogger(__name__)
 
 
 def index(request):
     """
     View which returns the three most recent posts
     """
-    cxt = {}
-    entries = Entry.objects.filter(published=True).order_by('-publish_date')[:3]
-    cxt['entries'] = entries
-    return render(request, 'blog/entry_list.html', cxt)
+    try:
+        cxt = {}
+        entries = Entry.objects.filter(published=True).order_by('-publish_date')[:3]
+        cxt['entries'] = entries
+        return render(request, 'blog/entry_list.html', cxt)
+    except Exception as e:
+        logger.error(e)
+        raise
 
 
 def blog_by_date(request, year, month=None, day=None):
