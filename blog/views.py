@@ -14,14 +14,10 @@ def index(request):
     """
     View which returns the three most recent posts
     """
-    try:
-        cxt = {}
-        entries = Entry.objects.filter(published=True).order_by('-publish_date')[:3]
-        cxt['entries'] = entries
-        return render(request, 'blog/entry_list.html', cxt)
-    except Exception as e:
-        logger.error(e)
-        raise
+    cxt = {}
+    entries = Entry.objects.filter(published=True).order_by('-publish_date')[:3]
+    cxt['entries'] = entries
+    return render(request, 'blog/entry_list.html', cxt)
 
 
 def blog_by_date(request, year, month=None, day=None):
