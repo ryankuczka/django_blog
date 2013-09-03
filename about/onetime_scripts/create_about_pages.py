@@ -23,8 +23,9 @@ PAGES = {
 }
 
 for p, i in PAGES.items():
-    AboutPage.objects.create(
-        name=i['name'],
-        internal_name=p,
-        template_name=i['template_name'],
+    AboutPage.objects.get_or_create(internal_name=p,
+        defaults={
+            'name': i['name'],
+            'template_name': i['template_name'],
+        }
     )
