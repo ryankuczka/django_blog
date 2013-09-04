@@ -22,7 +22,6 @@
         </div>
         {% endfor %}
     </div>
-    {% comment %}
     <div class="blogNavTab tags{% if tags %} selected{% endif %}">
         Tags
     </div>
@@ -36,6 +35,5 @@
             {% endfor %}
         </p>
     </div>
-    {% endcomment %}
     <a href="{% url 'blog_archive' %}" class="blogNavTab archives{% if archive %} selected{% endif %}">Archives</a>
 </div>
