@@ -12,6 +12,11 @@ h1,h2,h3,h4,h5,h6 {color: #000;}
 a {text-decoration: underline; color: #000;}
 a:hover {text-decoration: none;}
 .clear {clear: both;}
+code {background: #ccc; color: #000;}
+p > code {border: 1px solid #777; padding: 0 5px; border-radius: 2px;}
+pre {padding: 5px; background: #ccc; color: #000; border: 1px solid #777; border-radius: 2px;}
+p {line-height: 1.2em;}
+strong {color: #555;}
 
 #wrapAll {
     width: 950px;

@@ -39,17 +39,17 @@ def blog_by_date(request, year, month=None, day=None):
     cxt = {}
     year = int(year)
     if month is None:
-        start_date = datetime.date(year, 1, 1)
-        end_date = datetime.date(year, 12, 31)
+        start_date = datetime.datetime(year, 1, 1)
+        end_date = datetime.datetime(year, 12, 31)
     elif day is None:
         month = int(month)
-        start_date = datetime.date(year, month, 1)
-        end_date = datetime.date(year, month, calendar.monthrange(year, month)[1])
+        start_date = datetime.datetime(year, month, 1)
+        end_date = datetime.datetime(year, month, calendar.monthrange(year, month)[1])
     else:
         month = int(month)
         day = int(day)
-        start_date = datetime.date(year, month, day)
-        end_date = datetime.date(year, month, day)
+        start_date = datetime.datetime(year, month, day)
+        end_date = datetime.datetime(year, month, day)
     entries = Entry.objects.filter(published=True)\
         .filter(publish_date__gte=start_date)\
         .filter(publish_date__lte=end_date)
@@ -73,8 +73,12 @@ def entry(request, year, month, day, internal_name):
     View for a blog entry
     """
     cxt = {}
-    date = datetime.date(int(year), int(month), int(day))
-    entry = Entry.objects.get(internal_name=internal_name, publish_date=date)
+    date = datetime.datetime(int(year), int(month), int(day))
+    entry = Entry.objects.get(
+        internal_name=internal_name,
+        publish_date__gte=datetime.datetime.combine(date, datetime.time(0, 0)),
+        publish_date__lte=datetime.datetime.combine(date, datetime.time(23, 59))
+    )
     if entry.published is False:
         raise Http404
     cxt['entry'] = entry

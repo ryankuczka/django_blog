@@ -20,11 +20,11 @@ class Entry(models.Model):
     published = models.BooleanField(blank=True, default=False)
     create_date = models.DateTimeField(auto_now_add=True)
     modify_date = models.DateTimeField(auto_now=True)
-    publish_date = models.DateField(default=datetime.date.today)
+    publish_date = models.DateTimeField(default=datetime.datetime.now)
     tags = TaggableManager()
 
     class Meta:
-        ordering = ('publish_date',)
+        ordering = ('-publish_date',)
         verbose_name_plural = 'entries'
 
     def __unicode__(self):
@@ -47,13 +47,5 @@ class Entry(models.Model):
         return reverse('blog_entry', kwargs=kwargs)
 
     @property
-    def get_intro_para(self):
-        """
-        Simply returns the first <p></p> block... for now
-        """
-        first_para = re.search(r'^<p.*?>(?P<first_para>.*?)</p>', self.content)
-        if first_para:
-            first_para_text = first_para.group('first_para')
-            return first_para_text
-        else:
-            return self.content
+    def display_publish_date(self):
+        return self.publish_date.strftime('%b. %d, %Y %I:%M %p')
