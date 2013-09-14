@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.http import Http404
 
@@ -15,8 +16,19 @@ def index(request):
     View which returns the three most recent posts
     """
     cxt = {}
-    entries = Entry.objects.filter(published=True).order_by('-publish_date')[:3]
-    cxt['entries'] = entries
+    entries = Entry.objects.filter(published=True)
+    entries = Paginator(entries, 3)
+
+    cur_page = request.GET.get('p')
+    try:
+        entry_list = entries.page(cur_page)
+    except PageNotAnInteger:
+        entry_list = entries.page(1)
+    except EmptyPage:
+        entry_list = entries.page(entries.num_pages)
+
+    cxt['entry_list'] = entry_list
+    cxt['summary'] = True
     return render(request, 'blog/entry_list.html', cxt)
 
 
@@ -41,7 +53,18 @@ def blog_by_date(request, year, month=None, day=None):
     entries = Entry.objects.filter(published=True)\
         .filter(publish_date__gte=start_date)\
         .filter(publish_date__lte=end_date)
-    cxt['entries'] = entries
+    entries = Paginator(entries, 3)
+
+    cur_page = request.GET.get('p')
+    try:
+        entry_list = entries.page(cur_page)
+    except PageNotAnInteger:
+        entry_list = entries.page(1)
+    except EmptyPage:
+        entry_list = entries.page(entries.num_pages)
+
+    cxt['entry_list'] = entry_list
+    cxt['summary'] = True
     return render(request, 'blog/entry_list.html', cxt)
 
 
@@ -55,7 +78,9 @@ def entry(request, year, month, day, internal_name):
     if entry.published is False:
         raise Http404
     cxt['entry'] = entry
+    cxt['summary'] = False
     return render(request, 'blog/entry.html', cxt)
+
 
 def blog_archive(request):
     """
@@ -67,12 +92,24 @@ def blog_archive(request):
     cxt['archive'] = True
     return render(request, 'blog/archive.html', cxt)
 
+
 def blog_by_tag(request, tag):
     """
     View which displays all blogs with a tag
     """
     cxt = {}
     entries = Entry.objects.filter(tags__slug=tag)
-    cxt['entries'] = entries
+    entries = Paginator(entries, 3)
+
+    cur_page = request.GET.get('p')
+    try:
+        entry_list = entries.page(cur_page)
+    except PageNotAnInteger:
+        entry_list = entries.page(1)
+    except EmptyPage:
+        entry_list = entries.page(entries.num_pages)
+
+    cxt['entry_list'] = entry_list
     cxt['tags'] = True
+    cxt['summary'] = True
     return render(request, 'blog/entry_list.html', cxt)

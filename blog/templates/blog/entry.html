@@ -1,6 +1,12 @@
 {% extends 'blog/blog_two_column.html' %}
 
 {% block main_column %}
-<h2>{{ entry.title }}</h2>
-{{ entry.content|safe }}
+<h1 class="entryTitle">{{ entry.title }}</h1>
+<h5>By: {{ entry.get_author_display }}<span class="pubDate">{{ entry.display_publish_date }}</span></h5>
+<div class="entryContent">
+    {% include entry.template_name %}
+</div>
+<div class="entryTags">
+    <p>Tags: {% for tag in entry.tags.all %}<a href="{% url 'blog_by_tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+</div>
 {% endblock %}

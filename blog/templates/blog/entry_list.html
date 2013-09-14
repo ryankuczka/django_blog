@@ -1,11 +1,17 @@
 {% extends 'blog/blog_two_column.html' %}
 
 {% block main_column %}
-{% for entry in entries %}
+{% for entry in entry_list %}
 <a href="{{ entry.get_absolute_url }}" class="entryTitle"><h1>{{ entry.title }}</h1></a>
-<p>
-    {{ entry.get_intro_para|safe }}
-    <a href="{{ entry.get_absolute_url }}">Continue reading...</a>
-</p>
+<h5>By: {{ entry.get_author_display }}<span class="pubDate">{{ entry.display_publish_date }}</span></h5>
+{% include entry.template_name %}
 {% endfor %}
+<div class="pagination">
+    {% if entry_list.has_next %}
+    <a href="?p={{ entry_list.next_page_number }}">&lt;&lt; Older</a>
+    {% endif %}
+    {% if entry_list.has_previous %}
+    <a href="?p={{ entry_list.previous_page_number }}">{% if entry_list.has_next %}| {% endif %}Newer &gt;&gt;</a>
+    {% endif %}
+</div>
 {% endblock %}

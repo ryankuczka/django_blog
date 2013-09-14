@@ -15,7 +15,7 @@ AUTHORS = (
 class Entry(models.Model):
     title = models.CharField(max_length=200)
     internal_name = models.CharField(max_length=200)
-    content = models.TextField(blank=True)
+    template_name = models.CharField(max_length=200, default='posts/lorem_ipsum.html')
     author = models.CharField(max_length=50, choices=AUTHORS)
     published = models.BooleanField(blank=True, default=False)
     create_date = models.DateTimeField(auto_now_add=True)

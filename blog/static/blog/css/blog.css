@@ -1,3 +1,6 @@
+/* Entry Page */
+span.pubDate {float: right;}
+
 /* Sidebar Nav */
 #blogNav {
     width: 140px;
@@ -98,9 +101,6 @@ div.collapsed {display: none;}
     margin-top: 10px;
     box-shadow: -5px 5px 0 #cca000;
 }
-.entryTitle:hover {
-    box-shadow: -3px 3px 0 #cca000;
-}
-.entryTitle h1 {
-    margin: 0 0 0 10px;
-}
+a.entryTitle:hover {box-shadow: -3px 3px 0 #cca000;}
+a.entryTitle h1 {margin: 0 0 0 10px;}
+h1.entryTitle {padding: 0 0 0 10px;}
