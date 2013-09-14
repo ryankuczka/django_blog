@@ -138,7 +138,6 @@ INSTALLED_APPS = (
     'about',
     'blog',
     'projects',
-    'tinymce',
     'taggit',
     'taggit_templatetags',
 )
