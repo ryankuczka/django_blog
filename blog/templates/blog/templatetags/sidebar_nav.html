@@ -13,8 +13,8 @@
                     {{ month_tuple.1 }}&nbsp;&nbsp;<i class="icon-chevron-left"></i>
                 </a>
                 <div id="entries{{ month_tuple.0 }}-{{ year }}" class="blogNavEntries collapsed">
-                    {% for entry, entry_url in entries %}
-                    <a href="{{ entry_url }}">{{ entry }}</a>
+                    {% for entry in entries %}
+                    <a href="{{ entry.get_absolute_url }}">{{ entry }}</a>
                     {% endfor %}
                 </div>
                 {% endfor %}

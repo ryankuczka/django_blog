@@ -86,9 +86,8 @@ div.collapsed {display: none;}
     border-bottom: 1px solid #000;
     margin: 15px 0 5px 0;
 }
-.archEtr {
-    display: block;
-    margin-left: 15px;
+#archEtrList div {
+    padding: 2px 0 2px 15px;
     line-height: 1.2em;
 }
 

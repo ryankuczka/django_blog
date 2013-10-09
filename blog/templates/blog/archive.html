@@ -10,8 +10,11 @@
         {% for month_tuple, entries in months.items %}
         <a href="{% url 'blog_by_month' year month_tuple.0 %}" class="archMnth"><h3>{{ month_tuple.1 }}</h2></a>
         <div id="archEtrList">
-            {% for entry, entry_url in entries %}
-            <a href="{{ entry_url }}" class="archEtr">{{ entry.title }}</a>
+            {% for entry in entries %}
+            <div>
+                <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+                <span class="pubDate">{{ entry.display_publish_date }}</span>
+            </div>
             {% endfor %}
         </div>
         {% endfor %}
