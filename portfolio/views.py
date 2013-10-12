@@ -3,10 +3,19 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from portfolio.forms import ContactForm
+from blog.models import Entry
+from projects.models import Project
 
 
 def home(request):
-    return render(request, 'base_two_column.html', {})
+    cxt = {}
+    entries = Entry.objects.filter(published=True)[:3]
+    cxt['entries'] = entries
+    cxt['summary'] = True
+
+    projects = Project.objects.filter(published=True)[:3]
+    cxt['projects'] = projects
+    return render(request, 'homepage.html', cxt)
 
 
 def contact(request):

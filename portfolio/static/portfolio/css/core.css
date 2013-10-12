@@ -33,6 +33,23 @@ strong {color: #555;}
 #mainCol {width: 730px; float: left; margin-left: 20px;}
 #contentWrap {width: 900px; padding: 0 25px;}
 
+.homePgWell {
+    /*box-shadow: 0 0 15px #999;*/
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.homePgWell .inner {padding: 0 20px 20px;}
+.homePgTtl {
+    background: #999;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom: 1px solid black;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+.homePgTtl h1 {margin: 0 20px 5px;}
+
 /* Header */
 #header {
     height: 100px;

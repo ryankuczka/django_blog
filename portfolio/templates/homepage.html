@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link href="{% static 'blog/css/blog.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'projects/css/projects.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_content %}
+{% if entries %}
+<div class="homePgWell">
+    <div class="homePgTtl">
+        <h1>Recent Blog Posts</h1>
+    </div>
+    <div class="inner">
+        {% for entry in entries %}
+        <a href="{{ entry.get_absolute_url }}" class="entryTitle"><h2>{{ entry.title }}</h2></a>
+        <h5>By: {{entry.get_author_display }}<span class="pubDate">{{ entry.display_publish_date }}</span></h5>
+        {% include entry.template_name %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if projects %}
+<div class="homePgWell">
+    <div class="homePgTtl">
+        <h1>Recent Projects</h1>
+    </div>
+    <div class="inner">
+        {% for project in projects %}
+        <a href="{{ project.get_absolute_url }}" class="projName">
+            <h2>{{ project.name }}<span class="projUpdate">Last Updated: {{ project.updated }}</span></h2>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="footerSpacer"></div>
+{% endblock %}
