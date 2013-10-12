@@ -101,5 +101,5 @@ div.collapsed {display: none;}
     box-shadow: -5px 5px 0 #cca000;
 }
 a.entryTitle:hover {box-shadow: -3px 3px 0 #cca000;}
-a.entryTitle h1 {margin: 0 0 0 10px;}
+a.entryTitle h1, a.entryTitle h2 {margin: 0 0 0 10px;}
 h1.entryTitle {padding: 0 0 0 10px;}
