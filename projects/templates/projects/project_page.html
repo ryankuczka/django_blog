@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<h1>{{ project.name }}</h1>
+
+{% if project.description %}
+<p>{{ project.description }}</p>
+{% endif %}
+
+{% if project.source_control_link %}
+<p>Github link: <a href="{{ project.source_control_link }}">{{ project.source_control_link }}</a></p>
+{% endif %}
+
+{% if project.external_link %}
+<p>Link to live version: <a href="{{ project.external_link }}">{{ project.external_link }}</a></p>
+{% endif %}
+
+{% if project.template_name %}
+{% include project.template_name %}
+{% endif %}
+{% endblock %}
